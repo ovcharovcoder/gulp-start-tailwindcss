@@ -115,4 +115,4 @@ function scripts() {
 
 без розширення .css!
 
-<img src="img1.png" alt="image">
+<img src="img1.jpg" alt="image">
