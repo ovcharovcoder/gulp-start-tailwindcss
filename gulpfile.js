@@ -31,22 +31,22 @@ const paths = {
     fontsSrc: 'app/fonts/src/*.{ttf,otf}',
 };
 
-// Обробка HTML з компонентами
+// Processing HTML with components
 function pages() {
     return src(paths.htmlSrc, { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка HTML: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error HTML: <%= error.message %>')
         }))
         .pipe(plugins.include({ prefix: '@@', basepath: 'app/' }))
         .pipe(dest('app'))
         .pipe(plugins.browserSync.stream());
 }
 
-// Оптимізація шрифтів
+// Font optimization
 function fonts() {
     return src(paths.fontsSrc, { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка шрифтів: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error Fonts: <%= error.message %>')
         }))
         .pipe(plugins.fonter({ formats: ['woff', 'ttf'] }))
         .pipe(plugins.if(
@@ -61,38 +61,38 @@ function fonts() {
         .pipe(dest('app/fonts'));
 }
 
-// Оптимізація зображень
+// Image optimization
 function images() {
-    // Потік для SVG
+    // Processing SVG
     return src(paths.imagesSrc, { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка зображень: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error Image: <%= error.message %>')
         }))
         .pipe(plugins.newer('app/images'))
         .pipe(plugins.if(
             file => {
-                console.log('Обробка SVG:', file.path);
+                console.log('Processing SVG:', file.path);
                 return /\.svg$/.test(file.extname);
             },
             dest('app/images')
         ))
-        // Потік для AVIF
+        // Processing AVIF
         .pipe(src(paths.imagesSrc, { allowEmpty: true }))
         .pipe(plugins.newer('app/images'))
         .pipe(plugins.if(
             file => {
-                console.log('Обробка AVIF:', file.path);
+                console.log('Processing AVIF:', file.path);
                 return /\.(jpg|jpeg|png)$/.test(file.extname);
             },
             plugins.avif({ quality: 50 })
         ))
         .pipe(dest('app/images'))
-        // Потік для WebP
+        // Processing WebP
         .pipe(src(paths.imagesSrc, { allowEmpty: true }))
         .pipe(plugins.newer('app/images'))
         .pipe(plugins.if(
             file => {
-                console.log('Обробка WebP:', file.path);
+                console.log('Processing WebP:', file.path);
                 return /\.(jpg|jpeg|png)$/.test(file.extname);
             },
             plugins.webp()
@@ -100,7 +100,7 @@ function images() {
         .pipe(dest('app/images'));
 }
 
-// Скрипти
+// Scripts
 function cleanScripts() {
     return src(['app/js/main.min.js', 'app/js/main.min.js.map'], { allowEmpty: true })
         .pipe(plugins.clean());
@@ -109,7 +109,7 @@ function cleanScripts() {
 function scripts() {
     return src([paths.scriptsSrc, '!app/js/main.min.js', '!app/js/main.min.js.map'], { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка скриптів: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error scripts: <%= error.message %>')
         }))
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.concat('main.min.js'))
@@ -120,24 +120,24 @@ function scripts() {
         .pipe(plugins.sourcemaps.write('.'))
         .pipe(dest('app/js'))
         .pipe(plugins.browserSync.stream())
-        .on('data', file => console.log('Обробка скрипту:', file.path));
+        .on('data', file => console.log('Processing script:', file.path));
 }
 
 function scriptsProduction() {
     return src([paths.scriptsSrc, '!app/js/main.min.js', '!app/js/main.min.js.map'], { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка скриптів: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error scripts: <%= error.message %>')
         }))
         .pipe(plugins.concat('main.min.js'))
         .pipe(plugins.uglify())
         .pipe(dest('app/js'));
 }
 
-// Стилі з Tailwind CSS
+// Styles with Tailwind CSS
 function styles() {
     return src(paths.stylesSrc, { allowEmpty: true })
         .pipe(plugins.plumber({
-            errorHandler: plugins.notify.onError('Помилка стилів: <%= error.message %>')
+            errorHandler: plugins.notify.onError('Error styles: <%= error.message %>')
         }))
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.postcss([
@@ -149,10 +149,10 @@ function styles() {
         .pipe(plugins.sourcemaps.write('.'))
         .pipe(dest('app/css'))
         .pipe(plugins.browserSync.stream())
-        .on('data', file => console.log('Обробка стилів:', file.path));
+        .on('data', file => console.log('Processing styles:', file.path));
 }
 
-// Безперервна синхронізація
+// Continuous synchronization
 function sync(done) {
     plugins.browserSync.init({
         server: { baseDir: 'app/' },
@@ -164,7 +164,7 @@ function sync(done) {
     done();
 }
 
-// Спостереження та BrowserSync
+// Watching and BrowserSync
 function watching() {
     watch([paths.stylesSrc, 'app/components/*', 'app/pages/*'], parallel(styles, pages));
     watch([paths.scriptsSrc, '!app/js/main.min.js', '!app/js/main.min.js.map'], { delay: 100 }, series(cleanScripts, scripts));
@@ -174,17 +174,17 @@ function watching() {
     }));
     watch(paths.fontsSrc, series(fonts));
     sync(() => {
-        console.log('BrowserSync запущено');
+        console.log('BrowserSync started');
     });
 }
 
-// Очищення
+// Cleaning
 function cleanDist() {
     return src('dist', { allowEmpty: true })
         .pipe(plugins.clean());
 }
 
-// Збірка для продакшену
+// Build for production
 function building() {
     return src([
         'app/css/style.min.css',
