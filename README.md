@@ -1,4 +1,4 @@
-<h1>Gulp-tailwindcss start build</h1>
+<h1>Gulp-start-tailwindcss build</h1>
 											  
 ПРО ЗБІРКУ
 --------------------------------------------------
