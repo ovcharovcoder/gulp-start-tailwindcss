@@ -10,7 +10,7 @@
         "watch": "gulp watching"
     },
     "author": "Andriy Ovcharov <ovcharovcoder@gmail.com>",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "autoprefixer": "^10.4.20",
         "browser-sync": "^3.0.2",
