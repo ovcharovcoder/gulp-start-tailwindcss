@@ -91,3 +91,7 @@ npm install --save-dev gulp
 
 
 <img src="img.jpg" alt="image">
+
+ ## Ліцензія
+
+<a href="LICENSE">MIT</a>
