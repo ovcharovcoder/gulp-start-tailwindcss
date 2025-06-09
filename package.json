@@ -9,7 +9,7 @@
         "dev": "gulp",
         "watch": "gulp watching"
     },
-    "author": "Andriy Ovcharov",
+    "author": "Andriy Ovcharov <ovcharovcoder@gmail.com>",
     "license": "ISC",
     "devDependencies": {
         "autoprefixer": "^10.4.20",
