@@ -65,15 +65,15 @@ app/
 |   |-- main.js 
 |   
 |-- pages/
-|   |-- index.html
-|   
-|-- .gitignore
-|-- .prettierrc 
-|-- gulpfile.js 
-|-- package.json
-|-- postcss.config.js
-|-- tailwind.config.js
-|-- readme.txt
+    |-- index.html
+   
+.gitignore
+.prettierrc 
+gulpfile.js 
+package.json
+postcss.config.js
+tailwind.config.js
+readme.txt
 ```
 
 РОБОТА З ФАЙЛАМИ ПРОЄКТА
