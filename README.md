@@ -28,7 +28,7 @@
 1. Встановити/оновоти до останньої версії Node.js: (^22.14.0)
 2. Встановити npm пакетний менеджер
 3. Команди для встановлення gulp (у разі потреби):  
-```npm install --global gulp-cli```
+```npm install --global gulp-cli```</br>
 ```npm install --save-dev gulp```
 4. Розгорнути стартову збірку: ```npm i``` (або ```npm install```)
 5. Запустити gulp: ```gulp``` (або ```npm run dev```)
