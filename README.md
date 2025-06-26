@@ -114,8 +114,7 @@ README.md
 
 
 
-
-[!Перейти на версію Tailwindcss 4](https://github.com/ovcharovcoder/gulp-start-tailwindcss-4)
+[Перейти на версію Tailwindcss 4](https://github.com/ovcharovcoder/gulp-start-tailwindcss-4)
 
 
 ## ☕ Сподобалась збірка? 
