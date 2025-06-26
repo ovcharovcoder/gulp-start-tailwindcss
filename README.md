@@ -114,9 +114,6 @@ README.md
 
 
 
-[Перейти на версію Tailwindcss 4](https://github.com/ovcharovcoder/gulp-start-tailwindcss-4)
-
-
 ## ☕ Сподобалась збірка? 
 Пригостіть автора кавою через [PayPal](https://www.paypal.com/donate/?business=datoshcode@gmail.com)
 
@@ -129,3 +126,5 @@ README.md
  ## Ліцензія
 
 <a href="LICENSE">MIT LICENSE</a>
+
+[Перейти на версію Tailwindcss 4](https://github.com/ovcharovcoder/gulp-start-tailwindcss-4)
