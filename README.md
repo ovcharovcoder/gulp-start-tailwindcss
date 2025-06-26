@@ -112,6 +112,10 @@ README.md
 
 @@include('footer.html') - під'єднуємо footer.html
 
+РЕКОМЕНДОВАНІ ПЛАГІНИ ДЛЯ VS CODE:
+-------------------------------------------------
+- Tailwind CSS IntelliSense
+- Tailwind Snippets
 
 
 ## ☕ Сподобалась збірка? 
