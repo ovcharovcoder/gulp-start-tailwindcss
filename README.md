@@ -112,7 +112,10 @@ README.md
 
 @@include('footer.html') - під'єднуємо footer.html
 
+
+<a href="https://github.com/ovcharovcoder/gulp-start-tailwindcss-4">Перейти на версію Tailwindcss 4</a>
 [!Перейти на версію Tailwindcss 4](https://github.com/ovcharovcoder/gulp-start-tailwindcss-4)
+
 
 ## ☕ Сподобалась збірка? 
 Пригостіть автора кавою через [PayPal](https://www.paypal.com/donate/?business=datoshcode@gmail.com)
