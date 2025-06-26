@@ -114,8 +114,8 @@ README.md
 
 РЕКОМЕНДОВАНІ ПЛАГІНИ ДЛЯ VS CODE:
 -------------------------------------------------
-- Tailwind CSS IntelliSense
-- Tailwind Snippets
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Tailwind Snippets](https://marketplace.visualstudio.com/items?itemName=Zarifprogrammer.tailwind-snippets)
 
 
 ## ☕ Сподобалась збірка? 
